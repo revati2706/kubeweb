@@ -26,12 +26,4 @@ jobs:
           docker build -t ${{ secrets.DOCKER_USERNAME }}/nginx-app .
           docker push ${{ secrets.DOCKER_USERNAME }}/nginx-app
 
-      - name: Setup kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest'
-
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl apply -f deployment.yml
-          kubectl apply -f service.yml
+      
